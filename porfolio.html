@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+<title>B.VISWA TEJA | AIML Engineer</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+/* ======================================
+   ROOT COLORS
+====================================== */
+
+:root{
+    --bg:#050816;
+    --neon:#00f7ff;
+    --neon2:#8a2eff;
+    --text:#ffffff;
+    --gray:#a1a1aa;
+    --card:rgba(255,255,255,0.05);
+}
+
+/* ======================================
+   GLOBAL
+====================================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    scroll-behavior:smooth;
+}
+
+body{
+
+    font-family:'Inter',sans-serif;
+
+    background:
+    linear-gradient(
+        -45deg,
+        #050816,
+        #0f172a,
+        #001f3f,
+        #240046,
+        #001219
+    );
+
+    background-size:400% 400%;
+
+    animation:gradientShift 14s ease infinite;
+
+    color:var(--text);
+
+    overflow-x:hidden;
+
+    transition:0.5s;
+}
+
+/* Animated gradient */
+
+@keyframes gradientShift{
+
+    0%{
+        background-position:0% 50%;
+    }
+
+    50%{
+        background-position:100% 50%;
+    }
+
+    100%{
+        background-position:0% 50%;
+    }
+}
+
+/* ======================================
+   NAVBAR
+====================================== */
+
+nav{
+    position:fixed;
+    width:100%;
+    top:0;
+    padding:22px 8%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    backdrop-filter:blur(18px);
+    background:rgba(0,0,0,0.2);
+    border-bottom:1px solid rgba(255,255,255,0.08);
+    z-index:1000;
+}
+
+.logo{
+    display:flex;
+    align-items:center;
+    gap:15px;
+    font-family:'Orbitron',sans-serif;
+}
+
+.profile-pic{
+    width:55px;
+    height:55px;
+    border-radius:50%;
+    object-fit:cover;
+
+    border:2px solid var(--neon);
+
+    box-shadow:
+    0 0 10px var(--neon),
+    0 0 25px rgba(0,247,255,0.5);
+
+    animation:profileFloat 4s ease-in-out infinite;
+}
+
+@keyframes profileFloat{
+
+    0%{
+        transform:translateY(0px);
+    }
+
+    50%{
+        transform:translateY(-8px);
+    }
+
+    100%{
+        transform:translateY(0px);
+    }
+}
+
+.logo-text{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    font-weight:700;
+    letter-spacing:1px;
+}
+
+.logo-icon{
+    color:var(--neon);
+    text-shadow:0 0 15px var(--neon);
+}
+
+nav ul{
+    display:flex;
+    list-style:none;
+    gap:30px;
+}
+
+nav a{
+    color:var(--gray);
+    text-decoration:none;
+    font-size:0.85rem;
+    font-weight:600;
+    transition:0.3s;
+}
+
+nav a:hover{
+    color:var(--neon);
+    text-shadow:0 0 10px var(--neon);
+}
+
+/* ======================================
+   HERO SECTION
+====================================== */
+
+header{
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:0 8%;
+    gap:60px;
+}
+
+.hero-content{
+    flex:1;
+}
+
+.subtitle{
+    color:var(--neon);
+    margin-bottom:30px;
+    font-size:1rem;
+    letter-spacing:2px;
+    text-shadow:0 0 10px var(--neon);
+}
+
+h1{
+    text-align: center;
+    font-family:'Orbitron',sans-serif;
+    font-size:5.5rem;
+    line-height:1.05;
+    font-weight:800;
+}
+
+
+.highlight{
+    background:linear-gradient(
+        90deg,
+        var(--neon),
+        var(--neon2)
+    );
+
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+}
+
+/* ======================================
+   IMAGE
+====================================== */
+
+.hero-image-container{
+    flex:1;
+    display:flex;
+    justify-content:center;
+}
+
+.hero-graphic{
+
+    width:500px;
+    max-width:100%;
+
+    border-radius:30px;
+
+    border:1px solid rgba(255,255,255,0.1);
+
+    box-shadow:
+    0 0 30px rgba(0,247,255,0.25),
+    0 0 80px rgba(138,46,255,0.15);
+
+    animation:float 6s ease-in-out infinite;
+
+    transition:0.5s;
+}
+
+.hero-graphic:hover{
+
+    transform:scale(1.03);
+
+    box-shadow:
+    0 0 50px rgba(0,247,255,0.5),
+    0 0 120px rgba(138,46,255,0.3);
+}
+
+@keyframes float{
+
+    0%{
+        transform:translateY(0px);
+    }
+
+    50%{
+        transform:translateY(-25px);
+    }
+
+    100%{
+        transform:translateY(0px);
+    }
+}
+
+/* ======================================
+   SECTIONS
+====================================== */
+
+section{
+    padding:120px 8%;
+}
+
+.section-title{
+
+    font-family:'Orbitron',sans-serif;
+
+    font-size:2.5rem;
+
+    margin-bottom:50px;
+
+    text-shadow:0 0 15px rgba(0,247,255,0.4);
+}
+
+.grid-container{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+    gap:30px;
+}
+
+/* ======================================
+   CARDS
+====================================== */
+
+.clean-card{
+
+    background:var(--card);
+
+    backdrop-filter:blur(20px);
+
+    border:1px solid rgba(255,255,255,0.08);
+
+    border-radius:25px;
+
+    padding:40px;
+
+    transition:0.4s ease;
+
+    position:relative;
+
+    overflow:hidden;
+}
+
+.clean-card::before{
+
+    content:'';
+
+    position:absolute;
+
+    inset:0;
+
+    background:
+    linear-gradient(
+        135deg,
+        rgba(0,247,255,0.15),
+        transparent,
+        rgba(138,46,255,0.15)
+    );
+
+    opacity:0;
+
+    transition:0.5s;
+}
+
+.clean-card:hover::before{
+    opacity:1;
+}
+
+.clean-card:hover{
+
+    transform:translateY(-12px);
+
+    box-shadow:
+    0 0 25px rgba(0,247,255,0.2),
+    0 0 60px rgba(138,46,255,0.15);
+}
+
+.clean-card h3{
+    color:var(--neon);
+    margin-bottom:20px;
+    font-size:1.5rem;
+}
+
+.clean-card p{
+    color:var(--gray);
+    line-height:1.8;
+    margin-bottom:10px;
+}
+
+/* ======================================
+   REVEAL ANIMATION
+====================================== */
+
+.reveal{
+    opacity:0;
+    transform:translateY(80px);
+    transition:all 1s ease;
+}
+
+.reveal.active{
+    opacity:1;
+    transform:translateY(0);
+}
+
+/* ======================================
+   RESPONSIVE
+====================================== */
+
+@media(max-width:950px){
+
+    header{
+        flex-direction:column;
+        text-align:center;
+        padding-top:140px;
+    }
+
+    h1{
+        font-size:3.5rem;
+    }
+
+    nav{
+        padding:20px 5%;
+    }
+
+    nav ul{
+        gap:15px;
+    }
+
+    .hero-graphic{
+        width:100%;
+        max-width:400px;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- ======================================
+     NAVBAR
+====================================== -->
+
+<nav>
+
+<div class="logo">
+
+<img
+src="/Users/viswateja/viswa/WhatsApp Image 2026-05-09 at 12.50.21 PM.jpeg"
+alt="Profile"
+class="profile-pic"
+/>
+
+<div class="logo-text">
+
+<span class="logo-icon">⬢</span>
+
+B. VISWA TEJA
+
+</div>
+
+</div>
+
+<ul>
+<li><a href="#home">HOME</a></li>
+<li><a href="#skills">SKILLS</a></li>
+<li><a href="#about">ABOUT</a></li>
+<li><a href="#projects">PROJECTS</a></li>
+</ul>
+
+</nav>
+
+<!-- ======================================
+     HERO
+====================================== -->
+
+<header id="home">
+
+<div class="hero-content reveal">
+
+<p class="subtitle" id="typewriter"></p>
+
+<h1 class="main">TRAIN.<br>TEST.<br>
+
+DEPLOY.<br>
+
+ENGINEER THE<br>
+
+<span class="highlight">FUTURE.</span>
+
+</h1>
+
+</div>
+
+<div class="hero-image-container reveal">
+
+<img
+src="/Users/viswateja/viswa/logo.png"
+alt="AIML"
+class="hero-graphic"
+/>
+
+</div>
+
+</header>
+
+<!-- ======================================
+     SKILLS
+====================================== -->
+
+<section id="skills">
+
+<h2 class="section-title reveal">
+PROFILE & SKILLS
+</h2>
+
+<div class="grid-container">
+
+<div class="clean-card reveal">
+
+<h3>Education & Experience</h3>
+
+<p>B.Tech CSM @ MITS (CGPA: 7.05)</p>
+
+<p>Diploma CME (Score: 76%)</p>
+
+<p>WEB DEVOLPOMENT INTERNSHIP</p>
+
+</div>
+
+<div class="clean-card reveal">
+
+<h3> Skills</h3>
+
+<p>BASICS OF HTML</p>
+
+<p>BASICS OF CSS</p>
+
+<p>BASICS OF PYTHON</p>
+
+<p>BASICS OF MACHINE LEARNING</p>
+
+</div>
+
+</div>
+
+</section>
+<!--
+about-->
+<section id="about">
+
+<h2 class="section-title reveal">
+ABOUT
+</h2>
+
+<div class="grid-container">
+
+<div class="clean-card reveal">
+
+<h3>SUMMARY</h3>
+
+<p>I am pursuing B.Tech in Computer Science Engineering with a ARTIFICIAL INTELLIGENCE AND MACHINE LEARNING focus. I like building practical projects that improve my understanding of systems, and development.
+
+My goal is to grow into a strong machine learning engineer and software professional through hands-on work.</p>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ======================================
+     ACHIEVEMENTS
+====================================== -->
+
+<section id="projects">
+
+<h2 class="section-title reveal">
+PROJECTS
+</h2>
+
+<div class="clean-card reveal">
+
+<h3></h3>
+
+<p>
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<script>
+
+/* ======================================
+   TYPEWRITER
+====================================== */
+
+const text = "ARTIFICIAL AND MACHINE LEARNING ENGINEER";
+
+let i = 0;
+
+function typeWriter(){
+
+    if(i < text.length){
+
+        document.getElementById("typewriter").innerHTML += text.charAt(i);
+
+        i++;
+
+        setTimeout(typeWriter,60);
+    }
+}
+
+window.onload = typeWriter;
+
+/* ======================================
+   SCROLL REVEAL
+====================================== */
+
+function reveal(){
+
+    let reveals = document.querySelectorAll(".reveal");
+
+    for(let j = 0; j < reveals.length; j++){
+
+        let windowHeight = window.innerHeight;
+
+        let elementTop = reveals[j].getBoundingClientRect().top;
+
+        let elementVisible = 100;
+
+        if(elementTop < windowHeight - elementVisible){
+
+            reveals[j].classList.add("active");
+        }
+    }
+}
+
+window.addEventListener("scroll", reveal);
+
+reveal();
+
+/* ======================================
+   COLOR SHIFT ON SCROLL
+====================================== */
+
+window.addEventListener("scroll", () => {
+
+    let scrollY = window.scrollY;
+
+    let hue = scrollY / 5;
+
+    document.body.style.filter =
+    `hue-rotate(${hue}deg)`;
+});
+
+</script>
+
+</body>
+</html>
